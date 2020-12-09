@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo-list-app</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
+    <link rel="stylesheet" href="/Mini-projects/todo-list-app/style.css">
+    <script src="/Mini-projects/todo-list-app/script.js" defer></script>
+</head>
+<body>
+    <main class="container">
+        <header>
+            <div class="nav-icons">
+                <a href="#"><i class="fas fa-bars"></i></a>
+                <span>
+                    <a href="#"><i class="fas fa-search icon-1"></i></a>
+                    <a href="#"><i class="far fa-bell icon-2"></i></a>
+                </span>
+            </div>
+            <h1 class="main-text">What's Up George!</h1>
+        </header>
+
+        <h3 class="category-text">Categories</h3>
+        <div class="category">
+            <div class="business">
+                <div class="task-box">1 task</div>
+                <h3>Business</h3>
+            </div>
+            <div class="personal">
+                <div data-task-box class="task-box">1 task</div>
+                <h3>Personal <span class="active"><i class="fas fa-check"></i></span></h3>
+            </div>
+        </div>
+
+        <div class="date">
+            <h4>Today's task</h4>
+            <p data-date></p>
+        </div>
+
+        <ul data-list-container class="list">
+            <!-- <li class="list-item">
+                <i class="far fa-circle unchecked" ></i>
+                <!-- <i class="far fa-check-circle checked" ></i> 
+                <p class="text">item1</p>
+                <i class="fas fa-trash-alt del"></i>
+            </li> -->
+        </ul>
+        <div data-add-main-icon class="add-container">
+            <div data-add-input-text class="add-item">
+                <input data-input type="text" id="input">
+                <i data-add-btn class="fas fa-plus-circle add-icon-text"></i>
+                <!-- <i class="fas fa-plus-circle add-icon"></i> -->
+            </div>
+        </div>
+    </main>
+</body>
+</html>
