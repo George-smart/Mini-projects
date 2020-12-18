@@ -7,7 +7,7 @@ container.addEventListener('click', e=>{
     const num = container.querySelectorAll('.number');
     const previous = container.querySelector('.previous-operand');
     const current = container.querySelector('.current-operand');
-
+    
     if(btn){
         el.classList.toggle('change')
         container.classList.toggle('light-mode')
@@ -16,6 +16,7 @@ container.addEventListener('click', e=>{
         })
         previous.classList.toggle('light-mode')
         current.classList.toggle('light-mode')
+       
     }
 })
 
@@ -85,12 +86,30 @@ class Calculator{
         this.operation = undefined;
         this.previousOperand = ""
     }
-    displayUI(){
-        this.currentOperandText.innerText = this.currentOperand;
-        this.previousOperandText.innerText = this.previousOperand;
+    formatNumber(number){
+        const stringNumber = number.toString();
+        const integerNumber = parseFloat(stringNumber.split('.')[0]);
+        const decimalNum = stringNumber.split('.')[1];
+        let integerDisplay;
+        if(isNaN(integerNumber)){
+            integerDisplay = ""
+        } else{
+            integerDisplay = integerNumber.toLocaleString('en', {minimumFractionDigits: 0});
+        }
+        if(decimalNum != null){
+            return `${integerDisplay}.${decimalNum}`
+        } else{
+            return integerDisplay
+        }
     }
-
-
+    displayUI(){
+        this.currentOperandText.innerText = this.formatNumber(this.currentOperand);
+        if(this.operation != null){
+            this.previousOperandText.innerText = `${this.formatNumber(this.previousOperand)} ${this.operation}`;
+        } else{
+            this.previousOperandText.innerText = ""
+        }
+    }
 }
 
 const calculator = new Calculator(previousOperandText, currentOperandText);
@@ -120,4 +139,5 @@ operatorBtns.forEach(button =>{
 equalBtn.addEventListener('click', ()=>{
     calculator.compute();
     calculator.displayUI();
+    calculator.clear()
 })
